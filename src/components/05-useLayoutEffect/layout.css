@@ -1,0 +1,7 @@
+body {
+    padding: 4rem;
+}
+
+.blockquote {
+    display: flex;
+}
