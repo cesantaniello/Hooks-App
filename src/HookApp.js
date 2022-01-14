@@ -1,5 +1,4 @@
 import React from 'react';
-import './counter.css';
 
 export const HookApp = () => {
     return (
