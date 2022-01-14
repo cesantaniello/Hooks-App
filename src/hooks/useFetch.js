@@ -21,7 +21,14 @@ export const useFetch = (url) => {
                 (isMounted.current) 
                     ? setState({data, loading: false,error: null})
                     : console.log('Error');
-            });
+            })
+            .catch(() => {
+                setState({
+                    data: null,
+                    loading: false,
+                    error: 'Error fetching data'
+                })
+            })
     }, [url])
     return state;
 }
