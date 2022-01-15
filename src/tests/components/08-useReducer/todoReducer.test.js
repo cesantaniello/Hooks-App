@@ -20,4 +20,26 @@ describe('Tests on todoReducer', () => {
         });
         expect(state).toEqual([...demoTodos, newTodo]);
     })
+
+    test('should delete a todo', () => {
+        const id = 1;
+        const state = todoReducer(demoTodos, {
+            type: 'delete',
+            payload: id
+        });
+        expect(state).toEqual(demoTodos.filter(todo => todo.id !== id));
+    })
+
+    test('should toggle a todo', () => {
+        const id = 1;
+        const state = todoReducer(demoTodos, {
+            type: 'toggle',
+            payload: id
+        });
+        expect(state).toEqual(demoTodos.map(todo =>
+            (todo.id === id)
+                ? { ...todo, done: !todo.done }
+                : todo
+        ));
+    })
 })
